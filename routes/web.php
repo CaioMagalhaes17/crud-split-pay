@@ -18,7 +18,7 @@ $router->get('/', function () use ($router) {
 });
 
 $router->group(['prefix' => 'api'], function () use ($router) {
-    $router->group(['prefix' => 'produtos'], function () use ($router) {
+    $router->group(['prefix' => 'produto'], function () use ($router) {
         $router->post('', 'ProductsController@create');
         $router->get('/', 'ProductsController@index');
         $router->get('{id}', 'ProductsController@show');

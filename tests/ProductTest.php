@@ -20,7 +20,7 @@ class ProductTest extends TestCase
             'quantidade' => 300
         ];
 
-        $response = $this->json('POST', '/api/produtos', $data);
+        $response = $this->json('POST', '/api/produto', $data);
         $response->assertEquals(201, $this->response->status());
 
         $data = [
@@ -29,7 +29,7 @@ class ProductTest extends TestCase
             'descricao' => 'Produto de Teste'
         ];
 
-        $response = $this->json('POST', '/api/produtos', $data);
+        $response = $this->json('POST', '/api/produto', $data);
         $response->assertEquals(500, $this->response->status());
     }
 
@@ -41,7 +41,7 @@ class ProductTest extends TestCase
             'preco' => 15.99,
         ];
 
-        $response = $this->json('PUT', '/api/produtos/' . $produto->id, $data);
+        $response = $this->json('PUT', '/api/produto/' . $produto->id, $data);
         $response->assertEquals(200, $this->response->status());
     }
 
@@ -49,13 +49,13 @@ class ProductTest extends TestCase
     {
         $produto = Products::first();
 
-        $response = $this->json('DELETE', '/api/produtos/' . $produto->id);
+        $response = $this->json('DELETE', '/api/produto/' . $produto->id);
         $response->assertEquals(200, $this->response->status());
     }
 
-    public function testeListarTodosProdutos()
+    public function testeListarTodosprodutos()
     {
-        $response = $this->json('GET', '/api/produtos');
+        $response = $this->json('GET', '/api/produto');
         $response->assertEquals(200, $this->response->status());
     }
 
@@ -63,7 +63,7 @@ class ProductTest extends TestCase
     {
         $produto = Products::first();
 
-        $response = $this->json('GET', '/api/produtos/' . $produto->id);
+        $response = $this->json('GET', '/api/produto/' . $produto->id);
         $response->assertEquals(200, $this->response->status());
     }
 }
